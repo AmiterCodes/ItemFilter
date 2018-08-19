@@ -1,0 +1,28 @@
+message:
+     prefix: '&7[&bFilterItem&7]'
+     unknown-command: '%prefix% Unknow command!'
+     command-filter-hand-successful: '%prefix% successfully added the item in your hand to the filter!'
+     command-filter-hand-already-in-filter: '%prefix% that item is already in your item filter!'
+     command-filter-hand-no-item-in-hand: '%prefix% you must be holding an item!'
+     no-premission: '%prefix% you don't have permission to  perform this command'
+     reload: '%prefix% has been successfully reloaded'
+     help:
+GUI:
+     inventoryname: 'Filtered Blocks %page%'
+     size: 45
+     item format:
+     Name: %item name%
+     Lore:
+       - '&7This item is currently filtered and'
+       - '&7you won't be able to pick  it up'
+       - ''
+       - '&aClick to remove this from filter.'
+No-item-filtered-displayitem: barrier
+No-item-filtered-displayitem-name: '&cNo Items are being filtered'
+displayeritem-positions: 23
+Nextpages-item: anvil
+Nextpages-item-name: 'Next pages ->'
+Nextpages-positions: 45
+PreviousPage-item: anvil
+PreviousPage-item-name: '<- Previous page'
+PreviousPage-positions: 37

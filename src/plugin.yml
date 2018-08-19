@@ -1,0 +1,8 @@
+main: me.amitnave.itemfilter.Main
+author: Amiter
+version: 1.0.0
+description: filter plugin, that lets you filter out items
+commands:
+  filter:
+    description: main command to filter out items
+    usage: /filter <hand,view,reload,help>
