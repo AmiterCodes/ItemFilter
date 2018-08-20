@@ -1,5 +1,6 @@
 package me.amitnave.itemfilter;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -16,13 +17,18 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         this.saveDefaultConfig();
+        ConfigHandler.config = config;
+        Bukkit.getConsoleSender().sendMessage(config.getString("PreviousPage-item"));
+        Bukkit.getPluginManager().registerEvents(new GUIHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new EventListener(), this);
         this.getCommand("filter").setExecutor(new CommandHandler());
-        ConfigHandler.setConfig(config);
+
     }
     @Override
     public void onDisable() {
 
     }
+
 
 
 

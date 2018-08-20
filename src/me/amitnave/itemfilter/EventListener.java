@@ -12,7 +12,9 @@ public class EventListener implements Listener {
             return;
         }
         Player player = (Player) e.getEntity();
-        if (Main.playerFilterList.get(player).contains(e.getItem().getItemStack().getType())) {
+
+        if(Main.playerFilterList.containsKey(player))
+            if (Main.playerFilterList.get(player).contains(e.getItem().getItemStack().getType())) {
             e.setCancelled(true);
             return;
         }

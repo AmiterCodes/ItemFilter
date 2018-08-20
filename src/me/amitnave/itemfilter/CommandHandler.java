@@ -1,5 +1,6 @@
 package me.amitnave.itemfilter;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -35,7 +36,7 @@ public class CommandHandler implements CommandExecutor {
              case "view":
 
 
-
+                GUIHandler.openGUI(player, 1);
 
 
                  break;
@@ -50,10 +51,14 @@ public class CommandHandler implements CommandExecutor {
 
              case "help":
 
-
+                //TODO: help function
+                 player.sendMessage("hey\nheya");
 
 
                  break;
+                 default:
+                     player.sendMessage(ConfigHandler.getString("message.unknown-command"));
+                     break;
          }
         }
 
@@ -62,14 +67,20 @@ public class CommandHandler implements CommandExecutor {
         return true;
     }
     public void addMaterialToPlayer(Player player, Material mat) {
+        if(mat.equals(Material.AIR)) {
+            player.sendMessage(ConfigHandler.getString("message.command-filter-hand-no-item-in-hand"));
+        }
         if(Main.playerFilterList.containsKey(player)) {
             if(Main.playerFilterList.get(player).contains(mat)) {
-
-            } else
-            Main.playerFilterList.get(player).add(mat);
+                player.sendMessage(ConfigHandler.getString("message.command-filter-hand-already-in-filter"));
+            } else {
+                Main.playerFilterList.get(player).add(mat);
+                player.sendMessage(ConfigHandler.getString("message.command-filter-hand-successful"));
+            }
         } else {
             List<Material> matList = new ArrayList<Material>();
             matList.add(mat);
+            player.sendMessage(ConfigHandler.getString("message.command-filter-hand-successful"));
             Main.playerFilterList.put(player, matList);
         }
     }
